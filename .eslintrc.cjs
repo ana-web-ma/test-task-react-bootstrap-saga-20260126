@@ -28,6 +28,10 @@ module.exports = {
     "react/jsx-props-no-spreading": "off",
     "react/require-default-props": "off",
     "react/button-has-type": "off",
-    "jsx-a11y/control-has-associated-label": "off"
+    "jsx-a11y/control-has-associated-label": "off",
+    'no-param-reassign': ['error', {
+      props: true,
+      ignorePropertyModificationsFor: ['state']
+    }]
   },
 }
