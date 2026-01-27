@@ -18,7 +18,7 @@ export default function Post(props: Props) {
   return (
     <Card>
       <Card.Body>
-        <Stack direction='horizontal' gap={3}>
+        <Stack className='align-items-start' direction='horizontal' gap={3}>
           <Card.Img src='https://react-bootstrap.netlify.app/img/logo.svg' variant='left' width={50} height={50} />
           <Stack gap={3}>
             <Stack>
