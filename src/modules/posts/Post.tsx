@@ -1,6 +1,7 @@
 import { Button, Card, Stack } from 'react-bootstrap';
 import { PostType } from './postsSlice';
 import { useState } from 'react';
+import { Comments } from 'modules/comments';
 
 interface Props {
   post: PostType;
@@ -25,7 +26,7 @@ export default function Post(props: Props) {
             <Button className='me-auto mt-3' variant='outline-primary' size='sm' onClick={toggleComments}>
               Comments
             </Button>
-            {showComments && 'comments'}
+            {showComments && <Comments postId={post.id} />}
           </Stack>
         </Stack>
       </Card.Body>

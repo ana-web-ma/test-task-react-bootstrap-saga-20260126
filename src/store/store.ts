@@ -3,13 +3,15 @@ import createSagaMiddleware from 'redux-saga';
 import { all } from 'redux-saga/effects';
 
 import { postsReducer, postsSaga } from 'modules/posts';
+import { commentsReducer, commentsSaga } from 'modules/comments';
 
 const rootReducer = combineReducers({
   posts: postsReducer,
+  comments: commentsReducer,
 });
 
 function* rootSaga() {
-  yield all([postsSaga()]);
+  yield all([postsSaga(), commentsSaga()]);
 }
 
 const sagaMiddleware = createSagaMiddleware();
