@@ -1,3 +1,9 @@
+import Posts from 'modules/posts/Posts';
+
 export default function Mainpage() {
-  return <div>Mainpage</div>;
+  return (
+    <div>
+      <Posts />
+    </div>
+  );
 }

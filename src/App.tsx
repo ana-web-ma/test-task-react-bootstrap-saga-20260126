@@ -2,6 +2,8 @@ import Layout from '@components/Layout';
 import Mainpage from 'pages/Mainpage';
 import { Route, Routes } from 'react-router-dom';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 function App() {
   return (
     <Routes>
