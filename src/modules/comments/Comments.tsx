@@ -2,6 +2,7 @@ import { useAppDispatch, useAppSelector } from '@utils/hooks';
 import { useEffect } from 'react';
 import { CommentType, fetchCommentsRequest } from './commentsSlice';
 import { Stack } from 'react-bootstrap';
+import Comment from './Comment';
 
 interface Props {
   postId: number;
@@ -24,10 +25,10 @@ export default function Comments(props: Props) {
   }, [postId, dispatch, comments.length, loading]);
 
   return (
-    <Stack>
+    <Stack gap={3}>
       {error && 'Error'}
       {comments.length <= 0 && !loading && 'No comments yet'}
-      {loading ? 'loading' : comments.map((e: CommentType) => e.email)}
+      {loading ? 'loading' : comments.map((e: CommentType) => <Comment key={e.id} comment={e} />)}
     </Stack>
   );
 }
