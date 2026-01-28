@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { CommentType, fetchCommentsRequest } from './commentsSlice';
 import { Stack } from 'react-bootstrap';
 import Comment from './Comment';
+import CommentSkeleton from './CommentSkeleton';
 
 interface Props {
   postId: number;
@@ -28,7 +29,7 @@ export default function Comments(props: Props) {
     <Stack gap={3}>
       {error && 'Error'}
       {comments.length <= 0 && !loading && 'No comments yet'}
-      {loading ? 'loading' : comments.map((e: CommentType) => <Comment key={e.id} comment={e} />)}
+      {loading ? <CommentSkeleton /> : comments.map((e: CommentType) => <Comment key={e.id} comment={e} />)}
     </Stack>
   );
 }
