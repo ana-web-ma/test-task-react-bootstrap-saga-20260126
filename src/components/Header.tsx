@@ -27,6 +27,7 @@ export default function Header() {
                   roundedCircle
                   src='https://cdn.discordapp.com/attachments/652386576839475219/1463575869636477143/067a9be78604a82983c7c405f0c9e109.jpg?ex=697254bf&is=6971033f&hm=821cca2ebe2200a5d2edad867b0d9a75a5f10acb473f40ba78700e09e47b379a&'
                 />
+                <Offcanvas.Title>Anastasia</Offcanvas.Title>
                 <Offcanvas.Title>ana.web.ma@gmail.com</Offcanvas.Title>
               </Stack>
             </Offcanvas.Header>
