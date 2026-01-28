@@ -4,6 +4,7 @@ import { useAppDispatch, useAppSelector } from '@utils/hooks';
 import { fetchUserRequest } from './userSlice';
 import { Button, Card, Stack } from 'react-bootstrap';
 import Post from 'modules/posts/Post';
+import UserSkeleton from './UserSkeleton';
 
 export default function User() {
   const { userId } = useParams();
@@ -26,10 +27,10 @@ export default function User() {
       </Button>
       {error && error}
       {loading ? (
-        <div>Loading</div>
+        <UserSkeleton />
       ) : (
         <>
-          <Card>
+          <Card style={{ maxWidth: '44rem' }}>
             <Card.Body>
               <Card.Title>name: {user?.name}</Card.Title>
               <Card.Text>username: {user?.username}</Card.Text>
