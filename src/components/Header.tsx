@@ -33,12 +33,20 @@ export default function Header() {
             <Offcanvas.Body>
               <Nav activeKey='/' variant='string'>
                 <Nav.Item>
-                  <NavLink className={({ isActive }) => `${isActive ? 'text-dark' : 'text-primary'}`} to='/'>
+                  <NavLink
+                    className={({ isActive }) => `${isActive ? 'text-dark' : 'text-primary'}`}
+                    onClick={handleClose}
+                    to='/'
+                  >
                     Home
                   </NavLink>
                 </Nav.Item>
                 <Nav.Item>
-                  <NavLink className={({ isActive }) => `${isActive ? 'text-dark' : 'text-primary'}`} to='/about'>
+                  <NavLink
+                    className={({ isActive }) => `${isActive ? 'text-dark' : 'text-primary'}`}
+                    onClick={handleClose}
+                    to='/about'
+                  >
                     About
                   </NavLink>
                 </Nav.Item>
