@@ -3,6 +3,8 @@ import { PostType } from './postsSlice';
 import { useState } from 'react';
 import { Comments } from 'modules/comments';
 import { Link } from 'react-router-dom';
+import { useAppDispatch } from '@utils/hooks';
+import { clearComments } from 'modules/comments/commentsSlice';
 
 interface Props {
   post: PostType;
@@ -10,13 +12,16 @@ interface Props {
 
 export default function Post(props: Props) {
   const [showComments, setShowComments] = useState(false);
+  const { post } = props;
+  const { body, title, userId, id } = post;
+
+  const dispatch = useAppDispatch();
 
   const toggleComments = () => {
+    if (showComments) dispatch(clearComments(id));
     setShowComments(!showComments);
   };
 
-  const { post } = props;
-  const { body, title, userId, id } = post;
   return (
     <Card style={{ maxWidth: '44rem' }}>
       <Card.Body>
