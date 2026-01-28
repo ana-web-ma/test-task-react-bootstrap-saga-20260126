@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '@utils/hooks';
 import { fetchUserRequest } from './userSlice';
-import { Card, Stack } from 'react-bootstrap';
+import { Button, Card, Stack } from 'react-bootstrap';
 import Post from 'modules/posts/Post';
 
 export default function User() {
@@ -10,17 +10,25 @@ export default function User() {
   const { user, userPosts, error, loading } = useAppSelector((state) => state.user);
 
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+
+  const handleGoBack = () => {
+    navigate(-1);
+  };
 
   useEffect(() => {
     dispatch(fetchUserRequest(Number(userId)));
-  }, [userId]);
+  }, [userId, dispatch]);
   return (
-    <>
+    <Stack gap={3}>
+      <Button className='me-auto' onClick={handleGoBack}>
+        Back
+      </Button>
       {error && error}
       {loading ? (
         <div>Loading</div>
       ) : (
-        <Stack gap={4}>
+        <>
           <Card>
             <Card.Body>
               <Card.Title>name: {user?.name}</Card.Title>
@@ -31,8 +39,8 @@ export default function User() {
             </Card.Body>
           </Card>
           <Stack gap={3}>{userPosts?.map((post) => <Post key={post.id} post={post} />)}</Stack>
-        </Stack>
+        </>
       )}
-    </>
+    </Stack>
   );
 }
