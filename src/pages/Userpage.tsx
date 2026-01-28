@@ -1,3 +1,5 @@
+import { User } from 'modules/user';
+
 export default function Userpage() {
-  return <div>Userpage</div>;
+  return <User />;
 }
