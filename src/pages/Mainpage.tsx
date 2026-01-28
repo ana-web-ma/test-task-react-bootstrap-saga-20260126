@@ -1,4 +1,4 @@
-import Posts from 'modules/posts/Posts';
+import { Posts } from 'modules/posts';
 
 export default function Mainpage() {
   return (
