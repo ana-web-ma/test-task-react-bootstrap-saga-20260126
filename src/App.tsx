@@ -5,6 +5,7 @@ import { Route, Routes } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Userpage from 'pages/Userpage';
 import Aboutpage from 'pages/Aboutpage';
+import Notfoundpage from 'pages/Notfoundpage';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route index element={<Mainpage />} />
         <Route path='user/:userId' element={<Userpage />} />
         <Route path='/about' element={<Aboutpage />} />
+        <Route path='*' element={<Notfoundpage />} />
       </Route>
     </Routes>
   );
